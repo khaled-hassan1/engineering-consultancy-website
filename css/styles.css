@@ -155,10 +155,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(../97634-en.jpg) center/cover;
+    background: url("../img/97634-en.jpg") center/cover;
     opacity: 0.9;
     height: 100vh;
-    z-index: 1;
+    z-index: 1;/
 }
 
 [dir="rtl"] .hero-section::before {
@@ -168,7 +168,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(../97634-ar.jpg) center/cover;
+    background: url("../img/97634-ar.jpg") center/cover;
     opacity: 0.9;
     height: 100vh;
     z-index: 1;
