@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaTech Engineering - Professional Consulting Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="bi bi-building-gear me-2"></i>
+                <span data-key="company_name">AlphaTech</span>
+            </a>
+            
+            <div class="d-flex align-items-center order-lg-3">
+                <div class="language-selector me-3">
+                    <button class="btn btn-outline-light btn-sm" onclick="toggleLanguage()">
+                        <i class="bi bi-globe me-1"></i>
+                        <span id="lang-toggle">العربية</span>
+                    </button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" data-key="nav_home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-key="nav_about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" data-key="nav_services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-key="nav_contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center vh-100">
+                <div class="col-lg-6 mt-5">
+                    <div class="hero-content ">
+                      <h1 class="display-4 fw-bold mb-3 mt-5" data-key="hero_title">
+                            Engineering Excellence for a Sustainable Future
+                        </h1>
+                        <p class="lead mb-4 text-center" data-key="hero_subtitle">
+                            Leading consulting services in engineering, environmental solutions, and safety management for over 25 years.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-primary btn-lg me-3" data-key="hero_services_btn">Our Services</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg" data-key="hero_contact_btn">Get Consultation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                         alt="About Us" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4" data-key="about_title">About AlphaTech Engineering</h2>
+                    <p class="lead mb-4" data-key="about_description">
+                        Since 1998, AlphaTech Engineering has been at the forefront of innovative engineering solutions, 
+                        environmental consulting, and safety management across the Middle East and beyond.
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i>
+                                <span data-key="about_cert1">ISO 9001 Certified</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i>
+                                <span data-key="about_cert2">OSHA Compliant</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i>
+                                <span data-key="about_cert3">Environmental Excellence</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle-fill text-success me-2 fs-5"></i>
+                                <span data-key="about_cert4">24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3" data-key="services_title">Our Services</h2>
+            <p class="lead" data-key="services_subtitle">Comprehensive consulting solutions for complex engineering challenges</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="service-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="bi bi-gear-fill fs-1 text-primary"></i>
+                        </div>
+                        <h4 class="card-title mb-3" data-key="service1_title">Engineering Consulting</h4>
+                        <p class="card-text" data-key="service1_desc">
+                            Structural, mechanical, and electrical engineering solutions for complex infrastructure projects.
+                        </p>
+                        <div class="service-details mt-4">
+                            <h6 class="fw-bold mb-3" data-key="service1_list_title">Our Engineering Services Include:</h6>
+                            <div class="text-start">
+                                <p class="mb-2"><i class="bi bi-building me-2 text-primary"></i><span data-key="service1_item4">Structural Design & Analysis</span></p>
+                                <p class="mb-2"><i class="bi bi-lightning me-2 text-primary"></i><span data-key="service1_item5">Electrical Systems Design</span></p>
+                                <p class="mb-2"><i class="bi bi-gear me-2 text-primary"></i><span data-key="service1_item6">Mechanical Engineering</span></p>
+                                <p class="mb-2"><i class="bi bi-diagram-3 me-2 text-primary"></i><span data-key="service1_item7">Process Engineering</span></p>
+                                <p class="mb-2"><i class="bi bi-clipboard-check me-2 text-primary"></i><span data-key="service1_item8">Quality Assurance</span></p>
+                                <p class="mb-0"><i class="bi bi-tools me-2 text-primary"></i><span data-key="service1_item9">Technical Consulting</span></p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service1_item1">Structural Analysis</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service1_item2">MEP Design</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service1_item3">Project Management</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="service-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="bi bi-globe-central-south-asia fs-1 text-success"></i>
+                        </div>
+                        <h4 class="card-title mb-3" data-key="service2_title">Environmental Solutions</h4>
+                        <p class="card-text" data-key="service2_desc">
+                            Sustainable environmental consulting and impact assessment for responsible development.
+                        </p>
+                        <div class="service-details mt-4">
+                            <h6 class="fw-bold mb-3" data-key="service2_list_title">Environmental Services Include:</h6>
+                            <div class="text-start">
+                                <p class="mb-2"><i class="bi bi-tree me-2 text-success"></i><span data-key="service2_item4">Environmental Impact Studies</span></p>
+                                <p class="mb-2"><i class="bi bi-recycle me-2 text-success"></i><span data-key="service2_item5">Waste Management Solutions</span></p>
+                                <p class="mb-2"><i class="bi bi-water me-2 text-success"></i><span data-key="service2_item6">Water Quality Assessment</span></p>
+                                <p class="mb-2"><i class="bi bi-wind me-2 text-success"></i><span data-key="service2_item7">Air Quality Monitoring</span></p>
+                                <p class="mb-2"><i class="bi bi-leaf me-2 text-success"></i><span data-key="service2_item8">Sustainability Consulting</span></p>
+                                <p class="mb-0"><i class="bi bi-clipboard-data me-2 text-success"></i><span data-key="service2_item9">Environmental Auditing</span></p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service2_item1">Environmental Impact Assessment</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service2_item2">Waste Management</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service2_item3">Sustainability Planning</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="service-card card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon mb-3">
+                            <i class="bi bi-shield-fill-check fs-1 text-warning"></i>
+                        </div>
+                        <h4 class="card-title mb-3" data-key="service3_title">Safety Management</h4>
+                        <p class="card-text" data-key="service3_desc">
+                            Comprehensive safety protocols and risk management for industrial and construction environments.
+                        </p>
+                        <div class="service-details mt-4">
+                            <h6 class="fw-bold mb-3" data-key="service3_list_title">Safety Management Services:</h6>
+                            <div class="text-start">
+                                <p class="mb-2"><i class="bi bi-exclamation-triangle me-2 text-warning"></i><span data-key="service3_item4">Risk Assessment & Analysis</span></p>
+                                <p class="mb-2"><i class="bi bi-person-check me-2 text-warning"></i><span data-key="service3_item5">Safety Training Programs</span></p>
+                                <p class="mb-2"><i class="bi bi-clipboard-check me-2 text-warning"></i><span data-key="service3_item6">Compliance Auditing</span></p>
+                                <p class="mb-2"><i class="bi bi-file-earmark-text me-2 text-warning"></i><span data-key="service3_item7">Safety Documentation</span></p>
+                                <p class="mb-2"><i class="bi bi-graph-up me-2 text-warning"></i><span data-key="service3_item8">Performance Monitoring</span></p>
+                                <p class="mb-0"><i class="bi bi-headset me-2 text-warning"></i><span data-key="service3_item9">Emergency Response Planning</span></p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service3_item1">Risk Assessment</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service3_item2">Safety Training</span></li>
+                            <li><i class="bi bi-check text-success me-2"></i><span data-key="service3_item3">Compliance Audits</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3" data-key="contact_title">Get In Touch</h2>
+                <p class="lead" data-key="contact_subtitle">Ready to discuss your project? Contact our experts today</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-5">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label" data-key="contact_name">Full Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label" data-key="contact_email">Email Address</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label" data-key="contact_company">Company</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label" data-key="contact_service">Service Interest</label>
+                                        <select class="form-select">
+                                            <option data-key="service_select">Select a service...</option>
+                                            <option data-key="service_engineering">Engineering Consulting</option>
+                                            <option data-key="service_environmental">Environmental Solutions</option>
+                                            <option data-key="service_safety">Safety Management</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" data-key="contact_message">Message</label>
+                                    <textarea class="form-control" rows="4" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg" data-key="contact_submit">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt-fill fs-2 text-primary mb-3 d-block"></i>
+                        <h5 data-key="contact_address_title">Address</h5>
+                        <p class="text-muted" data-key="contact_address">
+                            King Fahd Road, Business District<br>
+                            Riyadh 11564, Saudi Arabia
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-info">
+                        <i class="bi bi-telephone-fill fs-2 text-primary mb-3 d-block"></i>
+                        <h5 data-key="contact_phone_title">Phone</h5>
+                        <p class="text-muted">
+                            +966 11 234 5678<br>
+                            +966 50 123 4567
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="contact-info">
+                        <i class="bi bi-envelope-fill fs-2 text-primary mb-3 d-block"></i>
+                        <h5 data-key="contact_email_title">Email</h5>
+                        <p class="text-muted">
+                            info@alphatech-eng.com<br>
+                            projects@alphatech-eng.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3" data-key="company_name">AlphaTech Engineering</h5>
+                    <p class="text-light" data-key="footer_description">
+                        Leading the future of engineering, environmental, and safety consulting across the region.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-4"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold mb-3" data-key="footer_services">Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#services" class="text-light text-decoration-none" data-key="service1_title">Engineering</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none" data-key="service2_title">Environmental</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none" data-key="service3_title">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold mb-3" data-key="footer_company">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-light text-decoration-none" data-key="nav_about">About</a></li>
+                        <li><a href="#services" class="text-light text-decoration-none" data-key="nav_services">Services</a></li>
+                        <li><a href="#contact" class="text-light text-decoration-none" data-key="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-key="footer_contact">Contact Info</h6>
+                    <p class="text-light mb-2">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span data-key="contact_address">Riyadh, Saudi Arabia</span>
+                    </p>
+                    <p class="text-light mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        +966 11 234 5678
+                    </p>
+                    <p class="text-light">
+                        <i class="bi bi-envelope me-2"></i>
+                        info@alphatech-eng.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted" data-key="footer_copyright">
+                        © 2025 AlphaTech Engineering. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-3" data-key="footer_privacy">Privacy Policy</a>
+                    <a href="#" class="text-light text-decoration-none" data-key="footer_terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

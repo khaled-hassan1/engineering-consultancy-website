@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة الخبرة للاستشارات الهندسية والبيئية</title>
+    
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1e3c72 !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #1e3c72 !important;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .engineering-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .environmental-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .safety-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .about-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #4ecdc4;
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-building me-2"></i>
+                شركة الخبرة
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">خدماتنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">تواصل معنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="fade-in">شركة الخبرة للاستشارات</h1>
+                        <p class="fade-in">نقدم حلولاً متطورة في الاستشارات الهندسية والبيئية وأنظمة الأمن والسلامة لضمان نجاح مشاريعكم وحماية البيئة</p>
+                        <div class="fade-in">
+                            <a href="#services" class="btn btn-primary-custom btn-lg me-3">
+                                <i class="fas fa-rocket me-2"></i>
+                                اكتشف خدماتنا
+                            </a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-phone me-2"></i>
+                                تواصل معنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center floating-animation">
+                        <i class="fas fa-industry" style="font-size: 15rem; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>خدماتنا المتخصصة</h2>
+                <p class="lead">نوفر مجموعة شاملة من الخدمات الاستشارية المتطورة</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon engineering-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-center mb-3">الاستشارات الهندسية</h3>
+                        <p class="text-center text-muted">
+                            نقدم استشارات هندسية متقدمة في التصميم والتطوير والإشراف على المشاريع الهندسية المعقدة بأحدث المعايير الدولية
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>التصميم الهندسي المتقدم</li>
+                            <li><i class="fas fa-check text-success me-2"></i>الإشراف على التنفيذ</li>
+                            <li><i class="fas fa-check text-success me-2"></i>دراسات الجدوى الفنية</li>
+                            <li><i class="fas fa-check text-success me-2"></i>إدارة المشاريع</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon environmental-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-center mb-3">الاستشارات البيئية</h3>
+                        <p class="text-center text-muted">
+                            خدمات بيئية شاملة لحماية البيئة وضمان الاستدامة مع الالتزام بالمعايير البيئية المحلية والدولية
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>تقييم الأثر البيئي</li>
+                            <li><i class="fas fa-check text-success me-2"></i>إدارة النفايات</li>
+                            <li><i class="fas fa-check text-success me-2"></i>مراقبة جودة الهواء والماء</li>
+                            <li><i class="fas fa-check text-success me-2"></i>الطاقة المتجددة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon safety-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-center mb-3">الأمن والسلامة</h3>
+                        <p class="text-center text-muted">
+                            حلول متكاملة للأمن والسلامة المهنية لضمان بيئة عمل آمنة ومطابقة لأعلى معايير السلامة العالمية
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>تقييم المخاطر</li>
+                            <li><i class="fas fa-check text-success me-2"></i>خطط الطوارئ</li>
+                            <li><i class="fas fa-check text-success me-2"></i>التدريب على السلامة</li>
+                            <li><i class="fas fa-check text-success me-2"></i>أنظمة الأمان المتطورة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-count="500">0</span>
+                        <span class="stat-label">مشروع مكتمل</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">سنة خبرة</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-count="200">0</span>
+                        <span class="stat-label">عميل راضٍ</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">خبير معتمد</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section animated-background">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>من نحن</h2>
+                <p class="lead">رواد في مجال الاستشارات الهندسية والبيئية</p>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="fade-in">
+                        <h3 class="mb-4">رؤيتنا ورسالتنا</h3>
+                        <p class="mb-4">
+                            شركة الخبرة هي شركة رائدة في مجال الاستشارات الهندسية والبيئية، تأسست بهدف تقديم حلول مبتكرة ومستدامة للمشاريع الصناعية والبيئية في المنطقة.
+                        </p>
+                        <p class="mb-4">
+                            نلتزم بأعلى معايير الجودة والاحترافية في جميع خدماتنا، ونسعى لتحقيق التوازن المثالي بين التطوير الاقتصادي وحماية البيئة.
+                        </p>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-award text-primary me-3" style="font-size: 2rem;"></i>
+                                    <div>
+                                        <h5 class="mb-0">معتمدون دولياً</h5>
+                                        <small class="text-muted">شهادات معترف بها</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-users text-primary me-3" style="font-size: 2rem;"></i>
+                                    <div>
+                                        <h5 class="mb-0">فريق خبراء</h5>
+                                        <small class="text-muted">مهندسون متخصصون</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center fade-in">
+                        <div class="position-relative">
+                            <i class="fas fa-city" style="font-size: 20rem; color: #e9ecef;"></i>
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <i class="fas fa-handshake" style="font-size: 5rem; color: #1e3c72;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 style="color: white;">تواصل معنا</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">نحن هنا لمساعدتك في تحقيق أهدافك</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info fade-in">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <i class="fas fa-map-marker-alt mb-3" style="font-size: 2rem;"></i>
+                                <h5>موقعنا</h5>
+                                <p>شارع التحرير، المحلة الكبرى<br>الغربية، مصر</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <i class="fas fa-phone mb-3" style="font-size: 2rem;"></i>
+                                <h5>اتصل بنا</h5>
+                                <p>+20 40 123 4567<br>+20 10 123 4567</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <i class="fas fa-envelope mb-3" style="font-size: 2rem;"></i>
+                                <h5>راسلنا</h5>
+                                <p>info@expertise-consulting.com<br>contact@expertise-consulting.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <h5 class="mb-3">تابعنا على</h5>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">
+                        <i class="fas fa-building me-2"></i>
+                        شركة الخبرة
+                    </h5>
+                    <p class="text-muted">
+                        شركة رائدة في مجال الاستشارات الهندسية والبيئية، نلتزم بتقديم حلول مبتكرة ومستدامة لعملائنا.
+                    </p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">خدماتنا</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">الاستشارات الهندسية</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">الاستشارات البيئية</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">الأمن والسلامة</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">إدارة المشاريع</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">معلومات الاتصال</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>المحلة الكبرى، الغربية، مصر</li>
+                        <li><i class="fas fa-phone me-2"></i>+20 40 123 4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@expertise-consulting.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">
+                        &copy; 2025 شركة الخبرة للاستشارات الهندسية والبيئية. جميع الحقوق محفوظة.
+                    </p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#home" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-arrow-up me-2"></i>
+                        العودة للأعلى
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar transparency effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current);
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-section');
+            const speed = scrolled * 0.5;
+            if (parallax) {
+                parallax.style.transform = 'translateY(' + speed + 'px)';
+            }
+        });
+
+        // Interactive hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Dynamic gradient background for hero
+        let gradientAngle = 135;
+        setInterval(() => {
+            gradientAngle += 0.5;
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = `linear-gradient(${gradientAngle}deg, #1e3c72 0%, #2a5298 100%)`;
+            }
+        }, 100);
+
+        // Add typing effect for hero title
+        const heroTitle = document.querySelector('.hero-content h1');
+        if (heroTitle) {
+            const text = heroTitle.textContent;
+            heroTitle.textContent = '';
+            heroTitle.style.borderRight = '2px solid white';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroTitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    heroTitle.style.borderRight = 'none';
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Add floating particles animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 255, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            
+            document.body.appendChild(particle);
+            
+            const animation = particle.animate([
+                { transform: 'translateY(0) translateX(0)', opacity: 1 },
+                { transform: `translateY(-${window.innerHeight + 100}px) translateX(${Math.random() * 200 - 100}px)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'linear'
+            });
+            
+            animation.onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add scroll progress indicator
+        const scrollProgress = document.createElement('div');
+        scrollProgress.style.position = 'fixed';
+        scrollProgress.style.top = '0';
+        scrollProgress.style.left = '0';
+        scrollProgress.style.width = '0%';
+        scrollProgress.style.height = '3px';
+        scrollProgress.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4)';
+        scrollProgress.style.zIndex = '9999';
+        scrollProgress.style.transition = 'width 0.1s ease';
+        document.body.appendChild(scrollProgress);
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Add click effect to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

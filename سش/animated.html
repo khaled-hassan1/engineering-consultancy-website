@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background Demo</title>
+    <style>
+        /* Animated Background Styles */
+        .animated-background {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            overflow: hidden;
+        }
+        
+        /* Wave Animation Overlay */
+        .animated-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            pointer-events: none;
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Demo Content Styles */
+        .demo-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .demo-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Additional demo sections */
+        .demo-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .section-light {
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .section-dark {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Animated Background Section -->
+    <div class="animated-background">
+        <div class="demo-content">
+            <h1>Animated Background</h1>
+            <p>This is a demo of the animated background with floating particles, dynamic gradient, and wave overlay. You can replace this content with your own.</p>
+        </div>
+    </div>
+    
+    <!-- Additional Demo Sections -->
+    <div class="demo-section section-light">
+        <h2>Light Section</h2>
+        <p>This section shows how the background works with other content below.</p>
+    </div>
+    
+    <div class="demo-section section-dark">
+        <h2>Dark Section</h2>
+        <p>The animated background is perfect for hero sections and landing pages.</p>
+    </div>
+    
+    <div class="demo-section section-light">
+        <h2>How to Use</h2>
+        <p>Simply copy the CSS and JavaScript code to implement this background in your own website.</p>
+    </div>
+
+    <script>
+        // Animated Background JavaScript
+        class AnimatedBackground {
+            constructor() {
+                this.init();
+            }
+            
+            init() {
+                this.setupDynamicGradient();
+                this.setupFloatingParticles();
+                this.setupScrollProgress();
+                this.setupParallaxEffect();
+            }
+            
+            // Dynamic Gradient Animation
+            setupDynamicGradient() {
+                let gradientAngle = 135;
+                setInterval(() => {
+                    gradientAngle += 0.5;
+                    const backgroundElement = document.querySelector('.animated-background');
+                    if (backgroundElement) {
+                        backgroundElement.style.background = `linear-gradient(${gradientAngle}deg, #1e3c72 0%, #2a5298 100%)`;
+                    }
+                }, 100);
+            }
+            
+            // Floating Particles Animation
+            setupFloatingParticles() {
+                const createParticle = () => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * window.innerWidth + 'px';
+                    particle.style.top = window.innerHeight + 'px';
+                    
+                    document.body.appendChild(particle);
+                    
+                    const animation = particle.animate([
+                        { 
+                            transform: 'translateY(0) translateX(0)', 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translateY(-${window.innerHeight + 100}px) translateX(${Math.random() * 200 - 100}px)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: Math.random() * 3000 + 2000,
+                        easing: 'linear'
+                    });
+                    
+                    animation.onfinish = () => particle.remove();
+                };
+                
+                // Create particles periodically
+                setInterval(createParticle, 300);
+            }
+            
+            // Scroll Progress Indicator
+            setupScrollProgress() {
+                const scrollProgress = document.querySelector('.scroll-progress');
+                
+                window.addEventListener('scroll', () => {
+                    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrolled = (window.scrollY / windowHeight) * 100;
+                    if (scrollProgress) {
+                        scrollProgress.style.width = scrolled + '%';
+                    }
+                });
+            }
+            
+            // Parallax Effect
+            setupParallaxEffect() {
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const parallax = document.querySelector('.animated-background');
+                    const speed = scrolled * 0.5;
+                    if (parallax) {
+                        parallax.style.transform = 'translateY(' + speed + 'px)';
+                    }
+                });
+            }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimatedBackground();
+        });
+        
+        // Additional utility functions
+        window.AnimatedBackgroundUtils = {
+            // Change gradient colors
+            setGradientColors: (color1, color2) => {
+                const backgroundElement = document.querySelector('.animated-background');
+                if (backgroundElement) {
+                    backgroundElement.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+                }
+            },
+            
+            // Change particle color
+            setParticleColor: (color) => {
+                const style = document.createElement('style');
+                style.textContent = `
+                    .particle {
+                        background: ${color} !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            },
+            
+            // Stop/Start particles
+            toggleParticles: (() => {
+                let particlesEnabled = true;
+                return () => {
+                    particlesEnabled = !particlesEnabled;
+                    if (!particlesEnabled) {
+                        document.querySelectorAll('.particle').forEach(p => p.remove());
+                    }
+                    return particlesEnabled;
+                };
+            })()
+        };
+        
+        // Example usage in console:
+        // AnimatedBackgroundUtils.setGradientColors('#ff6b6b', '#4ecdc4');
+        // AnimatedBackgroundUtils.setParticleColor('rgba(255, 107, 107, 0.8)');
+        // AnimatedBackgroundUtils.toggleParticles();
+    </script>
+</body>
+</html>
