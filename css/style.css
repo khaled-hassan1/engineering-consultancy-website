@@ -471,3 +471,103 @@
 
 .btn-outline-primary:hover {
     color: var(--bs-light) !important;
+}
+
+/* RTL Support */
+.rtl {
+    direction: rtl;
+}
+
+.rtl .navbar-nav {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.rtl .navbar-nav .nav-link {
+    margin-right: 30px;
+    margin-left: 0;
+}
+
+.rtl .dropdown-toggle::after {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+.rtl .hero-header {
+    text-align: right;
+}
+
+.rtl .testimonial-text h5::before {
+    right: 0;
+    left: auto;
+}
+
+.rtl .footer .btn.btn-link::before {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.rtl .footer .footer-menu a {
+    margin-left: 15px;
+    margin-right: 0;
+    padding-left: 15px;
+    padding-right: 0;
+    border-left: 1px solid rgba(255, 255, 255, .1);
+    border-right: none;
+}
+
+.rtl .footer .footer-menu a:last-child {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+}
+
+.rtl .header-carousel::before {
+    left: 0;
+    right: auto;
+}
+
+.rtl .header-carousel .owl-dots {
+    left: 38px;
+    right: auto;
+}
+
+.rtl .testimonial-img::before {
+    right: 0;
+    left: auto;
+    width: calc(50% + 45px);
+}
+
+.rtl .testimonial-img {
+    padding: 45px 90px 45px 0;
+}
+
+@media (max-width: 991.98px) {
+    .rtl .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+    }
+}
+
+/* Enhanced button styles */
+.btn-lg {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.btn-outline-light {
+    border-width: 2px;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--bs-white);
+    color: var(--bs-white);
+}
+
+/* Improved testimonial styling */
+.testimonial-text small {
+    font-style: italic;
+    opacity: 0.8;
+}
