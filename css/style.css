@@ -1,5 +1,10 @@
 /********** Template CSS **********/
 
+
+[lang="ar"] body{
+    
+}
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -380,13 +385,6 @@
         margin-right: 10px;
         margin-left: 0;
     }
-}
-
-
-/*** Newsletter ***/
-.newsletter {
-    background: url(../img/hero-bg.jpg) bottom right no-repeat;
-    background-size: cover;
 }
 
 @media (min-width: 992px) {
