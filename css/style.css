@@ -1,6 +1,12 @@
 /********** Template CSS **********/
 
 
+
+::selection {
+    background-color: #0d6b68;
+    color: var(--bs-light);
+}
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -148,6 +154,16 @@
     z-index: -1;
 }
 
+/* RTL Styles */
+[dir="rtl"] .header-carousel {
+    padding: 45px 0 45px 90px;
+}
+
+[dir="rtl"] .header-carousel::before {
+    left: 0;
+    right: auto;
+}
+
 .header-carousel .owl-dots {
     position: absolute;
     top: 50%;
@@ -157,6 +173,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+[dir="rtl"] .header-carousel .owl-dots {
+    left: 38px;
+    right: auto;
 }
 
 .header-carousel .owl-dot {
@@ -173,6 +194,7 @@
     height: 30px;
     background: var(--bs-white);
 }
+
 
 
 /*** About ***/
