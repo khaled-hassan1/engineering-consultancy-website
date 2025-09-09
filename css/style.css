@@ -1,6 +1,57 @@
 /********** Template CSS **********/
 
 
+html[lang="ar"] body {
+    font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* ===== Global Arabic font override (affects ALL Bootstrap text) ===== */
+
+/* 1) Override Bootstrap font variables when lang=ar */
+html[lang="ar"] {
+    --pmec-arabic-font: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bs-font-sans-serif: var(--pmec-arabic-font);
+    --bs-body-font-family: var(--pmec-arabic-font);
+}
+
+/* 2) Force common components (and any custom headings/navbar) to use Cairo */
+html[lang="ar"] body,
+html[lang="ar"] .navbar,
+html[lang="ar"] .nav,
+html[lang="ar"] .dropdown-menu,
+html[lang="ar"] .btn,
+html[lang="ar"] .form-control,
+html[lang="ar"] .form-select,
+html[lang="ar"] .input-group-text,
+html[lang="ar"] .table,
+html[lang="ar"] .badge,
+html[lang="ar"] .breadcrumb,
+html[lang="ar"] .pagination,
+html[lang="ar"] .modal,
+html[lang="ar"] .tooltip,
+html[lang="ar"] .popover,
+html[lang="ar"] .accordion,
+html[lang="ar"] .list-group,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+    font-family: var(--bs-body-font-family) !important;
+}
+
+/* 3) Ensure form fields & placeholders also use Cairo */
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select,
+html[lang="ar"] button {
+    font-family: var(--bs-body-font-family) !important;
+}
+
+html[lang="ar"] ::placeholder {
+    font-family: var(--bs-body-font-family) !important;
+}
 
 ::selection {
     background-color: #0d6b68;
@@ -455,7 +506,7 @@
 
 .footer .copyright {
     padding: 25px 0;
-    font-size: 14px;
+    /* font-size: 14px; */
     border-top: 1px solid rgba(256, 256, 256, .1);
 }
 
@@ -503,14 +554,53 @@
     transition: background-color 0.3s ease;
 }
 
-.contact-link {
+.link-footer {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 500;
 }
 
-.contact-link:hover {
+.link-footer:hover {
     color: var(--bs-light);
     text-decoration: underline;
+}
+
+
+.ltr-number {
+    direction: ltr;
+    unicode-bidi: plaintext;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+html[dir="rtl"] .footer .btn.btn-link::before {
+    content: "\f104";
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* عكس ترتيب الأعمدة داخل السلايد حسب الاتجاه */
+[dir="rtl"] .testimonial-item .row {
+    flex-direction: row-reverse;
+}
+
+/* محاذاة النص */
+.testimonial-text {
+    text-align: left;
+}
+
+[dir="rtl"] .testimonial-text {
+    text-align: right;
+}
+
+/* نقاط الكاروسيل (لو استخدمت dots على الجنب) */
+.header-carousel .owl-dots {
+    right: 38px;
+    left: auto;
+}
+
+[dir="rtl"] .header-carousel .owl-dots {
+    left: 38px;
+    right: auto;
 }

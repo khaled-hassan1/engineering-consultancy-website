@@ -1,20 +1,20 @@
 (function ($) {
   "use strict";
 
-  // Spinner
-  var spinner = function () {
+  /* ========= Spinner ========= */
+  function spinner() {
     setTimeout(function () {
-      if ($('#spinner').length > 0) {
-        $('#spinner').removeClass('show');
+      if ($("#spinner").length > 0) {
+        $("#spinner").removeClass("show");
       }
     }, 1);
-  };
+  }
   spinner();
 
-  // wowjs
+  /* ========= WOW ========= */
   new WOW().init();
 
-  // Sticky Navbar
+  /* ========= Sticky Navbar ========= */
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 300) {
       $(".sticky-top").addClass("bg-white shadow-sm").css("top", "0px");
@@ -23,44 +23,96 @@
     }
   });
 
-  // Back to top
+  /* ========= Back to top ========= */
   $(window).on("scroll", function () {
-    if ($(this).scrollTop() > 100) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
-    }
+    if ($(this).scrollTop() > 100) $(".back-to-top").fadeIn("slow");
+    else $(".back-to-top").fadeOut("slow");
   });
   $(".back-to-top").on("click", function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
   });
 
-  /** Owl helpers **/
+  /* ========= Globals ========= */
+  var currentLanguage = localStorage.getItem("language") || "en";
+  var languageButton = null;
+
+  /* ========= Bootstrap LTR/RTL toggle ========= */
+  function applyBootstrapDirection(isRTL) {
+    var ltr = document.getElementById("bootstrapLTR");
+    var rtl = document.getElementById("bootstrapRTL");
+    if (ltr && rtl) {
+      ltr.disabled = !!isRTL;
+      rtl.disabled = !isRTL;
+    }
+  }
+
+  /* ========= Update all texts (original + Owl clones) ========= */
+  function updateTexts() {
+    var dicts = window.elementsToTranslate;
+    if (!dicts || typeof dicts !== "object") return;
+
+    for (var id in dicts) {
+      var entry = dicts[id];
+      if (!entry || typeof entry !== "object") continue;
+      var val = entry[currentLanguage];
+      if (typeof val !== "string") continue;
+
+      // حدث كل العناصر اللي لها نفس الـ id (بما فيها نسخ Owl)
+      var nodes = document.querySelectorAll('[id="' + id + '"]');
+      nodes.forEach(function (node) {
+        node.textContent = val;
+      });
+    }
+
+    // Title & meta (اختياري)
+    if (dicts.pageTitle && typeof dicts.pageTitle[currentLanguage] === "string") {
+      document.title = dicts.pageTitle[currentLanguage];
+    }
+    if (
+      dicts.pageDescription &&
+      typeof dicts.pageDescription[currentLanguage] === "string"
+    ) {
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", dicts.pageDescription[currentLanguage]);
+    }
+
+    // زر اللغة
+    if (
+      languageButton &&
+      dicts.languageButton &&
+      typeof dicts.languageButton[currentLanguage] === "string"
+    ) {
+      languageButton.textContent = dicts.languageButton[currentLanguage];
+    }
+  }
+
+  /* ========= Owl helpers ========= */
   function destroyCarousels() {
     $(".header-carousel, .testimonial-carousel").each(function () {
-      const $el = $(this);
+      var $el = $(this);
       if ($el.hasClass("owl-loaded")) {
         $el.trigger("destroy.owl.carousel");
         $el.removeClass("owl-loaded owl-hidden");
-        // unwrap the stage markup Owl added
+        // فك تغليف الـ stage اللي Owl عمله
         $el.find(".owl-stage-outer").children().unwrap();
       }
     });
   }
 
   function initCarousels(isRTL) {
-    // Header carousel
     $(".header-carousel").owlCarousel({
       autoplay: true,
       smartSpeed: 1000,
       loop: true,
       dots: true,
       items: 1,
-      rtl: !!isRTL
+      rtl: !!isRTL,
+      onInitialized: updateTexts,
+      onRefreshed: updateTexts,
+      onTranslated: updateTexts,
     });
 
-    // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
       items: 1,
       autoplay: true,
@@ -70,98 +122,78 @@
       dots: true,
       loop: true,
       nav: false,
-      rtl: !!isRTL
+      rtl: !!isRTL,
+      onInitialized: updateTexts,
+      onRefreshed: updateTexts,
+      onTranslated: updateTexts,
     });
+
+    // تطبيق فوري بعد أول init
+    updateTexts();
   }
 
-  /** Language + direction switching **/
-  const languageButton = document.getElementById("languageButton");
-
-  // IMPORTANT: your translations object already exists below in your file; reuse it.
-  // (No change needed to keys/values—just keep what you have.)
-
-  let currentLanguage = localStorage.getItem("language") || "en";
-
-  function applyBootstrapDirection(isRTL) {
-    const ltr = document.getElementById("bootstrapLTR");
-    const rtl = document.getElementById("bootstrapRTL");
-    if (ltr && rtl) {
-      ltr.disabled = !!isRTL;
-      rtl.disabled = !isRTL;
-    }
-  }
-
-  function updateTexts() {
-    // Uses your existing elementsToTranslate object exactly as-is.
-    if (typeof elementsToTranslate !== "object") return;
-    for (const id in elementsToTranslate) {
-      const el = document.getElementById(id);
-      if (!el) continue;
-      const dict = elementsToTranslate[id];
-      if (dict && typeof dict === "object") {
-        if (typeof dict[currentLanguage] === "string") {
-          el.textContent = dict[currentLanguage];
-        }
-      }
-    }
-    if (languageButton && elementsToTranslate.languageButton) {
-      languageButton.textContent = elementsToTranslate.languageButton[currentLanguage];
-    }
-
-    // Optional: title & meta description if provided
-    if (elementsToTranslate.pageTitle) {
-      document.title = elementsToTranslate.pageTitle[currentLanguage] || document.title;
-    }
-    if (elementsToTranslate.pageDescription) {
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", elementsToTranslate.pageDescription[currentLanguage]);
+  /* ========= بعض التعديلات حسب الاتجاه (اختياري) ========= */
+  function flipAlignForFooter(isRTL) {
+    var el = document.querySelector(".footer-about");
+    if (!el) return;
+    if (isRTL) {
+      el.classList.remove("text-md-start");
+      el.classList.add("text-md-end");
+    } else {
+      el.classList.remove("text-md-end");
+      el.classList.add("text-md-start");
     }
   }
 
+  /* ========= Language switch ========= */
   function setLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem("language", currentLanguage);
 
-    // Flip lang/dir
-    const isRTL = currentLanguage === "ar";
+    var isRTL = currentLanguage === "ar";
     document.documentElement.lang = isRTL ? "ar" : "en";
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
 
-    // Swap Bootstrap CSS
     applyBootstrapDirection(isRTL);
-
-    // Update texts
     updateTexts();
+    flipAlignForFooter(isRTL);
 
-    // Re-init carousels with correct RTL
+    // Re-init Owl مع الاتجاه الجديد + ترجمة نسخ العناصر
     destroyCarousels();
     initCarousels(isRTL);
 
-    // Let others hook into this
-    window.dispatchEvent(new CustomEvent("i18n:lang-changed", { detail: { lang } }));
+    // إشعار عام لو حبيت تربط حاجات تانية
+    window.dispatchEvent(
+      new CustomEvent("i18n:lang-changed", { detail: { lang: currentLanguage, rtl: isRTL } })
+    );
   }
 
-  // Initial load
-  setLanguage(currentLanguage);
+  /* ========= DOM Ready ========= */
+  $(function () {
+    languageButton = document.getElementById("languageButton");
 
-  // Toggle on click
-  if (languageButton) {
-    languageButton.addEventListener("click", function () {
-      setLanguage(currentLanguage === "en" ? "ar" : "en");
-    });
-  }
+    if (languageButton) {
+      languageButton.addEventListener("click", function () {
+        setLanguage(currentLanguage === "en" ? "ar" : "en");
+      });
+    }
 
-  // Keep your footer year updater
-  const yearEl = document.getElementById("currentYear");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+    // تهيئة أولية
+    setLanguage(currentLanguage);
 
+    // سنة الفوتر
+    var yearEl = document.getElementById("currentYear");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // لو عرّفت قاموسك بعدين وعايز تدي إشارة:
+    window.addEventListener("i18n:dict-ready", updateTexts);
+  });
+
+  // أمان إضافي بعد التحميل الكامل
+  window.addEventListener("load", updateTexts);
 })(jQuery);
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const languageButton = document.getElementById("languageButton");
-  const elementsToTranslate = {
-    // Meta Tags
+window.elementsToTranslate = {
+ // Meta Tags
     pageTitle: {
       en: "PMEC - Engineering, Environmental, Security and Safety Consulting",
       ar: "PMEC - استشارات هندسية وبيئية وأمن وسلامة"
@@ -179,12 +211,20 @@ document.addEventListener("DOMContentLoaded", function () {
     aboutNav: { en: "About", ar: "عن الشركة" },
     servicesNav: { en: "Services", ar: "الخدمات" },
     contactNav: { en: "Contact", ar: "اتصل بنا" },
-    languageButton: { en: "English", ar: "العربية" },
+    languageButton: { en: "العربية", ar: "English" },
 
     // Hero Section
-    heroHomeTitle: {
-      en: "We Are The Best Engineering, Environmental, Security, and Safety Consulting Company In The World",
-      ar: "نحن أفضل شركة استشارات هندسية وبيئية وأمن وسلامة في العالم"
+    heroHomeTitlePart1: {
+      en: "We Are The Best",
+      ar: "نحن أفضل"
+    },
+    heroHomeTitlePart2: {
+      en: "Engineering, Environmental, Security, and Safety Consulting Company",
+      ar: "شركة استشارات هندسية وبيئية وأمن وسلامة"
+    },
+    heroHomeTitlePart3: {
+      en: " In The World",
+      ar: " في العالم"
     },
     heroHomeSubtitle: {
       en: "Providing comprehensive consulting solutions for a sustainable and secure future.",
@@ -326,7 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
     safetyManagement2: { en: "Safety Management", ar: "إدارة السلامة" },
     securitySystems2: { en: "Security Systems", ar: "أنظمة الأمن" },
     allRightReserved: { en: "All Right Reserved.", ar: "جميع الحقوق محفوظة." },
-    designedBy: { en: "Designed", ar: "تصميم" },
     /// About
     // Meta Tags
     pageTitle: {
@@ -470,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
       en: "partners",
       ar: "شركاؤنا"
     },
-   
+
     // Footer
     footerAbout: {
       en: "PMEC is a leading consulting firm providing engineering, environmental, security, and safety solutions to clients worldwide. We are dedicated to excellence and innovation in all our projects.",
@@ -525,11 +564,11 @@ document.addEventListener("DOMContentLoaded", function () {
       ar: "أنظمة الأمان"
     },
     copyright: {
-      en: "All Right Reserved",
-      ar: "جميع الحقوق محفوظة"
+      en: "All Right Reserved ",
+      ar: "جميع الحقوق محفوظة "
     },
     designedBy: {
-      en: "Designed",
+      en: "Designed by",
       ar: "تصميم"
     },
     /// Contact
@@ -566,7 +605,6 @@ document.addEventListener("DOMContentLoaded", function () {
     footerLinks: { en: "Popular Link", ar: "روابط شائعة" },
     footerServices: { en: "Our Services", ar: "خدماتنا" },
     footerCopy: { en: "All Right Reserved", ar: "جميع الحقوق محفوظة" },
-    designedBy: { en: "Designed by AAPlans", ar: "تصميم AAPlans" },
 
     /// Services
 
@@ -763,58 +801,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، 3846"
     },
     phoneFooter: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
-    emailFooter: { en: "info@pmesc.net", ar: "info@pmesc.net" }
-  };
-
-  let currentLanguage = localStorage.getItem("language") || "ar";
-
-  function updateLanguage() {
-    for (const id in elementsToTranslate) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.textContent = elementsToTranslate[id][currentLanguage];
-      }
-    }
-
-    // تحديث لغة الصفحة واتجاه النص
-    document.documentElement.lang = currentLanguage === "en" ? "en" : "ar";
-    // document.style.direction = currentLanguage === "en" ? "ltr" : "rtl";
-    document.body.style.textAlign = currentLanguage === "en" ? "left" : "right";
-    if (languageButton) {
-      languageButton.textContent =
-        elementsToTranslate["languageButton"][currentLanguage];
-    }
-  }
-
-  languageButton.addEventListener("click", function () {
-    currentLanguage = currentLanguage === "en" ? "ar" : "en";
-    localStorage.setItem("language", currentLanguage);
-    updateLanguage();
-    console.log(localStorage.getItem("language"));
-  });
-
-  updateLanguage(); // تطبيق اللغة المختارة عند تحميل الصفحة
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const footerAboutDiv = document.querySelector(".footer-about");
-
-  function isArabic() {
-    const htmlElement = document.querySelector("html");
-    return htmlElement.getAttribute("lang") === "ar";
-    // يمكنك استخدام طريقة أخرى للتحقق من اللغة إذا لزم الأمر
-    // return document.body.classList.contains('rtl');
-  }
-
-  if (footerAboutDiv) {
-    if (isArabic()) {
-      footerAboutDiv.classList.remove("text-md-start");
-      footerAboutDiv.classList.add("text-md-end");
-    } else {
-      footerAboutDiv.classList.remove("text-md-end");
-      footerAboutDiv.classList.add("text-md-start");
-    }
-  }
-});
+    emailFooter: { en: "info@pmesc.net", ar: "info@pmesc.net" }};
 
 document.getElementById("currentYear").textContent = new Date().getFullYear();
+window.dispatchEvent(new Event("i18n:dict-ready"));
