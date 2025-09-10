@@ -1,5 +1,84 @@
 /********** Template CSS **********/
 
+/* === Primary brand color overrides (Bootstrap 5.0.x) === */
+:root{
+  --bs-primary: #0d6b68;
+  --bs-primary-rgb: 13,107,104;
+  --bs-link-color: #0d6b68;
+  --bs-link-hover-color: #0b5f5c;
+}
+
+/* Utilities & text/background/border helpers */
+.text-primary    { color: #0d6b68 !important; }
+.bg-primary      { background-color: #0d6b68 !important; }
+.border-primary  { border-color: #0d6b68 !important; }
+.link-primary    { color: #0d6b68 !important; }
+.link-primary:hover,
+.link-primary:focus { color: #0b5f5c !important; }
+
+/* Buttons */
+.btn-primary{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+}
+.btn-primary:hover,
+.btn-primary:focus{
+  background-color:#0b5f5c;
+  border-color:#0b5f5c;
+}
+.btn-primary:active,
+.btn-primary.active{
+  background-color:#0a524f;
+  border-color:#0a524f;
+}
+.btn-primary:focus{
+  box-shadow: 0 0 0 .25rem rgba(13,107,104,.25);
+}
+.btn-primary.disabled, .btn-primary:disabled{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+}
+
+/* Outline buttons */
+.btn-outline-primary{
+  color:#0d6b68;
+  border-color:#0d6b68;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+  color:#fff;
+}
+
+/* Forms & components اللي بتستخدم اللون الأساسي */
+.form-check-input:checked{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+}
+.form-control:focus,
+.form-select:focus{
+  border-color:#0d6b68;
+  box-shadow: 0 0 0 .25rem rgba(13,107,104,.25);
+}
+.page-link{ color:#0d6b68; }
+.page-item.active .page-link{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+}
+.progress-bar{ background-color:#0d6b68; }
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link{ background-color:#0d6b68; }
+.dropdown-item.active,
+.dropdown-item:active{ background-color:#0d6b68; }
+.list-group-item.active{
+  background-color:#0d6b68;
+  border-color:#0d6b68;
+}
+
+/* (اختياري) لون اللينكات العادية */
+a{ color:#0d6b68; list-style: none;}
+a:hover{ color:#0b5f5c; }
 
 html[lang="ar"] body {
     font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;

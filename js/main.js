@@ -34,7 +34,7 @@
   });
 
   /* ========= Globals ========= */
-  var currentLanguage = localStorage.getItem("language") || "en";
+  var currentLanguage = sessionStorage.getItem("language") || "ar";
   var languageButton = null;
 
   /* ========= Bootstrap LTR/RTL toggle ========= */
@@ -148,7 +148,7 @@
   /* ========= Language switch ========= */
   function setLanguage(lang) {
     currentLanguage = lang;
-    localStorage.setItem("language", currentLanguage);
+    sessionStorage.setItem("language", currentLanguage);
 
     var isRTL = currentLanguage === "ar";
     document.documentElement.lang = isRTL ? "ar" : "en";
@@ -202,8 +202,8 @@
 
 function updateFormTexts() {
   var dicts = window.elementsToTranslate || {};
-  // فضّل html lang، وإلا من localStorage
-  var lang = (document.documentElement.lang || localStorage.getItem("language") || "en");
+  // فضّل html lang، وإلا من sessionStorage
+  var lang = (document.documentElement.lang || sessionStorage.getItem("language") || "ar");
   lang = lang.startsWith("ar") ? "ar" : "en";
 
   var form =
