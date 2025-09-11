@@ -412,7 +412,7 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، RDLB 3846"
   },
   phoneText: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
-  emailText: { en: "info@pmesc.net", ar: "info@pmesc.net" },
+  emailText: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" },
   popularLinkTitle: { en: "Popular Link", ar: "روابط شائعة" },
   ourServicesTitle: { en: "Our Services", ar: "خدماتنا" },
   engineeringSolutions4: { en: "Engineering Solutions", ar: "حلول هندسية" },
@@ -652,7 +652,7 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، 3846"
   },
   phone: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
-  contactEmail: { en: "info@pmesc.net", ar: "info@pmesc.net" },
+  contactEmail: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" },
 
   // Footer
   footerDescription: {
@@ -858,7 +858,7 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، 3846"
   },
   phoneFooter: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
-  emailFooter: { en: "info@pmesc.net", ar: "info@pmesc.net" }
+  emailFooter: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" }
 };
 
 document.getElementById("currentYear").textContent = new Date().getFullYear();
