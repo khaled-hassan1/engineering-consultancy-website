@@ -412,6 +412,7 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، RDLB 3846"
   },
   phoneText: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
+  phoneText2: { en: "+966 50 7299 951", ar: "+966 50 7299 951" },
   emailText: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" },
   popularLinkTitle: { en: "Popular Link", ar: "روابط شائعة" },
   ourServicesTitle: { en: "Our Services", ar: "خدماتنا" },
@@ -652,6 +653,7 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، 3846"
   },
   phone: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
+  phone2: { en: "+966 50 7299 951", ar: "+966 50 7299 951" },
   contactEmail: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" },
 
   // Footer
@@ -858,7 +860,303 @@ window.elementsToTranslate = {
     ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، 3846"
   },
   phoneFooter: { en: "+966 55 1795 955", ar: "+966 55 1795 955" },
+  phoneFooter2: { en: "+966 50 7299 951", ar: "+966 50 7299 951" },
   emailFooter: { en: "enviormentalconsultant@gmail.com", ar: "enviormentalconsultant@gmail.com" }
+  ,
+  
+    // Hero Section
+    heroHomeTitlePart1: {
+        en: "We Are The Best",
+        ar: "نحن أفضل"
+    },
+    heroHomeTitlePart2: {
+        en: "Environmental Consulting Company (Cat A)",
+        ar: "شركة استشارات بيئية (فئة أ)"
+    },
+    heroHomeTitlePart3: {
+        en: " In The World",
+        ar: " في العالم"
+    },
+    heroHomeSubtitle: {
+        en: "Everything you need to achieve Category A environmental compliance in environmental consulting.",
+        ar: " كل ما يلزمك لتحقيق الالتزام البيئي في مجال الاستشارات البيئية فئة أ. "
+    },
+    heroDescription: {
+        en: "Specializing in securing all environmental permits for facilities, including gas stations, crushers, concrete and block factories, all factories and farms, and hospitals, ensuring full compliance with all NCEC requirements.",
+        ar: "متخصصون في استخراج جميع التراخيص البيئية للمنشآت، بما في ذلك محطات الوقود، الكسارات، مصانع الخرسانة والبلك، جميع المصانع والمزارع، والمستشفيات، لضمان الامتثال التام لجميع متطلبات المركز الوطني للالتزام البيئي (NCEC)."
+    },
+    getQuoteBtn: {
+        en: "Get Free Quote",
+        ar: "اطلب عرض سعر مجاني"
+    },
+    
+    // Hero Features
+    environmentalSolutions: {
+        en: "Environmental Compliance (Cat A)",
+        ar: "الالتزام البيئي (فئة أ)"
+    },
+    complianceAssurance: {
+        en: "Speed in Execution",
+        ar: "سرعة في الإنجاز"
+    },
+    expertConsultants: {
+        en: "Professional Consulting Team",
+        ar: "فريق استشاري محترف"
+    },
+    discountOffers: {
+        en: "30% Discounts",
+        ar: "تخفيضات 30%"
+    },
+
+    // About Section
+    aboutHeading: {
+        en: "About Us",
+        ar: "من نحن"
+    },
+    aboutParagraph1: {
+        en: "We are a leading firm specializing in providing integrated environmental consulting services, helping facilities achieve the environmental compliance required by the National Center for Environmental Compliance (NCEC).",
+        ar: "نحن شركة رائدة متخصصة في تقديم الخدمات الاستشارية البيئية المتكاملة، ونساعد المنشآت على تحقيق الالتزام البيئي المطلوب منها حسب تصنيف المركز الوطني للالتزام البيئي (NCEC)."
+    },
+    aboutParagraph2: {
+        en: "Our services include issuing all environmental licenses for other facilities such as gas stations, crushers, concrete and block factories, and hospitals, guaranteeing accuracy in results and speed in execution.",
+        ar: "خدماتنا تشمل إصدار جميع التراخيص البيئية للمنشآت الأخرى مثل محطات الوقود، الكسارات، مصانع الخرسانة والبلك، والمستشفيات، لضمان دقة في النتائج وسرعة في الإنجاز."
+    },
+    
+    // About Checkmarks
+    environmentalConsulting1: {
+        en: "Environmental Permit Follow-up",
+        ar: "متابعة التصريح البيئي"
+    },
+    impactAssessment: {
+        en: "Environmental Impact Assessment",
+        ar: "دراسة تقييم الأثر البيئي"
+    },
+    environmentalAuditing: {
+        en: "Environmental Auditing",
+        ar: "التدقيق البيئي للمنشآت"
+    },
+    sustainablePractices: {
+        en: "Soil and Air Quality Analysis",
+        ar: "تحاليل جودة التربة والهواء"
+    },
+    readMoreBtn: {
+        en: "Read More",
+        ar: "اقرأ المزيد"
+    },
+
+    // Why Choose Us Section
+    whyChooseUsTitle: {
+        en: "Why",
+        ar: "لماذا"
+    },
+    whyChooseUsTitleSpan: {
+        en: "Choose Us",
+        ar: "تختارنا"
+    },
+    
+    // Why Choose Us Cards (Updated from image data)
+    environmentalComplianceTitle: {
+        en: "Environmental Compliance (Cat A)",
+        ar: "الالتزام البيئي (فئة أ)"
+    },
+    environmentalComplianceText: {
+        en: "Guaranteed issuance of environmental permits for all required environmental facility categories.",
+        ar: "ضمان استخراج التصاريح البيئية لجميع فئات المنشآت البيئية المطلوبة."
+    },
+    comprehensiveServiceTitle: {
+        en: "Integrated Services for Projects",
+        ar: "خدمات متكاملة للمشاريع"
+    },
+    comprehensiveServiceText: {
+        en: "We offer integrated services to meet your project's environmental permit needs, including soil investigation and analysis.",
+        ar: "نقدم خدمات متكاملة تلبي احتياجات التصاريح البيئية لمشروعك، بما في ذلك أعمال الجسات والتحاليل."
+    },
+    industrialExpertise: {
+        en: "Specialization in Sensitive Facilities",
+        ar: "تخصص في المنشآت الحساسة"
+    },
+    industrialExpertiseText: {
+        en: "Specialized in gas stations, chemical factories, crushers, and hospitals.",
+        ar: "متخصصون في محطات الوقود، المصانع الكيماوية، الكسارات، والمستشفيات."
+    },
+    clientSatisfactionTitle: {
+        en: "Professional Consulting Team",
+        ar: "فريق استشاري محترف"
+    },
+    clientSatisfactionText: {
+        en: "A specialized team known for accuracy in results and speed in execution.",
+        ar: "فريق متخصص يتميز بالدقة في النتائج والسرعة في الإنجاز."
+    },
+    professionalTeamTitle: {
+        en: "Issuance of All Licenses",
+        ar: "إصدار جميع التراخيص"
+    },
+    professionalTeamText: {
+        en: "Issuance and follow-up service for all environmental licenses for other facilities.",
+        ar: "خدمة إصدار ومتابعة لجميع التراخيص البيئية للمنشآت الأخرى."
+    },
+    bestPriceGuaranteedTitle: {
+        en: "Our Best Prices Ever",
+        ar: "أسعارنا الأفضل على الإطلاق"
+    },
+    bestPriceGuaranteedText: {
+        en: "Competitive prices, with discounts up to  30% .",
+        ar: "أسعار منافسة، مع خصومات تصل إلى  30% ."
+    },
+
+    // Services Section
+    ourProfessional: {
+        en: "Our Environmental",
+        ar: "خدماتنا"
+    },
+    ourProfessionalServices: {
+        en: "Services",
+        ar: "البيئية"
+    },
+    servicesParagraph1: {
+        en: "We offer integrated services to meet your project's environmental permit needs, from initial assessment to final permit issuance.",
+        ar: "نقدم خدمات متكاملة لتلبية احتياجات التصاريح البيئية لمشروعك، من التقييم الأولي وحتى الحصول على التصريح النهائي."
+    },
+    servicesParagraph2: {
+        en: "We work to ensure you achieve Environmental Compliance (Category A), and we provide specialized consultations for facilities with high NCEC classification.",
+        ar: "نعمل على ضمان تحقيقك لـ الالتزام البيئي (فئة أ)، ونوفر استشارات متخصصة للمنشآت ذات التصنيف العالي في المركز الوطني للالتزام البيئي."
+    },
+    callUsText: {
+        en: "Call us direct 24/7 for a free consultation",
+        ar: "اتصل بنا مباشرة 24/7 لاستشارة مجانية"
+    },
+    
+    // Service Cards
+    auditingAndStudies: {
+        en: "Auditing & EIA Studies",
+        ar: "التدقيق ودراسات الأثر البيئي"
+    },
+    auditingAndStudiesText: {
+        en: "Preparing all necessary studies like EIA and environmental auditing.",
+        ar: "إعداد دراسة تقييم الأثر البيئي والتدقيق البيئي المطلوبين."
+    },
+    testingAndAnalysis: {
+        en: "Measurements & Analysis",
+        ar: "القياسات والتحاليل"
+    },
+    testingAndAnalysisText: {
+        en: "Soil investigation, air and light quality measurements, and soil quality analysis.",
+        ar: "أعمال الجسات، قياسات جودة الهواء والضوء، وتحاليل جودة التربة."
+    },
+    licensingFollowUp: {
+        en: "Environmental Permit Follow-up",
+        ar: "متابعة التصاريح البيئية"
+    },
+    licensingFollowUpText: {
+        en: "Follow-up on the application for the environmental permit for construction and operation.",
+        ar: "متابعة طلب الحصول على التصريح البيئي للإنشاء والتشغيل."
+    },
+    managementPlans: {
+        en: "Environmental Management Plans",
+        ar: "خطط الإدارة البيئية"
+    },
+    managementPlansText: {
+        en: "Preparing studies for Environmental Management Plans to ensure continuous environmental compliance.",
+        ar: "إعداد دراسات خطط الإدارة البيئية لضمان الامتثال البيئي المستمر."
+    },
+
+    // Partners Section (Now focusing on facility types)
+    ourPartnersTitle2: {
+        en: "Key Facilities We",
+        ar: "أهم"
+    },
+    ourPartnersSpan2: {
+        en: "Serve",
+        ar: " المنشآت التي نخدمها"
+    },
+    
+    partner1Title2: {
+        en: "Hospitals & Medical Centers (Category One)",
+        ar: "المستشفيات والمراكز الطبية (فئة أولى)"
+    },
+    partner1Text2: {
+        en: "Specialized in hospitals and medical centers of all specialties to achieve Environmental Compliance Category A. (Includes Category One).",
+        ar: "متخصصون في المستشفيات والمراكز الطبية بجميع التخصصات لتحقيق الالتزام البيئي فئة أ. (تشمل الفئة الأولى)."
+    },
+    partner2Title2: {
+        en: "Gas Stations (Category Two)",
+        ar: "محطات الوقود (فئة ثانية)"
+    },
+    partner2Text2: {
+        en: "Specialized in oil stations and gas stations to ensure full environmental compliance (Includes oil change and Category Two stations).",
+        ar: "متخصصون في محطات النفط ومحطات الوقود لضمان تحقيق الالتزام البيئي الكامل (تشمل محطات تغيير الزيوت والمحطات الفئة الثانية)."
+    },
+    partner3Title2: {
+        en: "Crushers, Factories, and Petrochemical Plants (Category Three)",
+        ar: "الكسارات والمصانع والبتروكيماوية (فئة ثالثة)"
+    },
+    partner3Text2: {
+        en: "Specialized in petrochemical factories and all types of factories, crushers, quarries, concrete and block factories (Includes Category Three).",
+        ar: "متخصصون في المصانع البتروكيماوية وجميع أنواع المصانع، والكسارات والمحاجر ومصانع الخرسانة والبلك (تشمل الفئة الثالثة)."
+    },
+
+    // Footer
+    footerAboutText: {
+        en: "PMEC is a leading firm specializing in Environmental Consulting (Category A) in Saudi Arabia. We are committed to providing sustainable and innovative solutions to ensure our clients' compliance.",
+        ar: "بيوت المعمار هي شركة رائدة متخصصة في الاستشارات البيئية (فئة أ) في المملكة العربية السعودية. نلتزم بتقديم حلول مستدامة ومبتكرة لضمان امتثال عملائنا."
+    },
+    getInTouchTitle: {
+        en: "Get In Touch",
+        ar: "تواصل معنا"
+    },
+    addressText: {
+        en: "Najd Road, Dhahrat Laban District, Riyadh, Saudi Arabia, RDLB 3846",
+        ar: "طريق نجد، حي ظهرة لبن، الرياض، المملكة العربية السعودية، RDLB 3846"
+    },
+    popularLinkTitle: {
+        en: "Quick Links",
+        ar: "روابط سريعة"
+    },
+    footerHomeLink: {
+        en: "Home",
+        ar: "الرئيسية"
+    },
+    footerAboutLink: {
+        en: "About Us",
+        ar: "من نحن"
+    },
+    footerServicesLink: {
+        en: "Services",
+        ar: "خدماتنا"
+    },
+    footerContactLink: {
+        en: "Contact Us",
+        ar: "اتصل بنا"
+    },
+    ourServices: {
+        en: "Our Environmental Services",
+        ar: "خدماتنا البيئية"
+    },
+    footerEnvironmentalConsulting: {
+        en: "Environmental Compliance (Cat A)",
+        ar: "الالتزام البيئي (فئة أ)"
+    },
+    footerImpactAssessment: {
+        en: "EIA & Auditing Studies",
+        ar: "دراسات الأثر البيئي والتدقيق"
+    },
+    footerTestingAndAnalysis: {
+        en: "Measurements & Analysis",
+        ar: "القياسات والتحاليل"
+    },
+    footerLicensingFollowUp: {
+        en: "Licensing Follow-up",
+        ar: "متابعة التصاريح البيئية"
+    },
+    copyright: {
+        en: "All Rights Reserved",
+        ar: "جميع الحقوق محفوظة"
+    },
+    designedBy: {
+        en: "Designed",
+        ar: "تصميم"
+    }
+
 };
 
 document.getElementById("currentYear").textContent = new Date().getFullYear();
